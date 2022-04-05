@@ -1,25 +1,37 @@
+from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from django.shortcuts import render
-from AppCoder.models import *
+from AppCoder.models import Curso
+
+# Create your views here.
 
 def curso(request):
-    curso=Curso(nombre="Desarrollo Web",camada= 19854)
-    curso.save()
-    documento= f"---->Curso : {curso.nombre} Camada: {curso.camada}"
-    return HttpResponse(documento)
 
-def Inicio(request):
-    return render (request, "AppCoder/Inicio.html")
+      curso =  Curso(nombre="Desarrollo web", camada="19881")
+      curso.save()
+      documentoDeTexto = f"--->Curso: {curso.nombre}   Camada: {curso.camada}"
 
-def Curso(request):
-    return render (request, "AppCoder/Curso.html")
 
-def Profesor(request):
-    return render (request, "AppCoder/Profesor.html")
+      return HttpResponse(documentoDeTexto)
 
-def Estudiante(request):
-    return render (request, "AppCoder/Estudiante.html")
 
-def Entregable(request):
-    return render (request, "AppCoder/Entregable.html")
+def inicio(request):
 
+      return render(request, "AppCoder/inicio.html")
+
+def cursos(request):
+
+      return render(request, "AppCoder/cursos.html")
+
+def profesores(request):
+
+      return render(request, "AppCoder/profesores.html")
+
+
+def estudiantes(request):
+
+      return render(request, "AppCoder/estudiantes.html")
+
+
+def entregables(request):
+
+      return render(request, "AppCoder/entregables.html")
